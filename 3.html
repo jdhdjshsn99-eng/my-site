@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "San Francisco", Arial;
+    background: #f5f5f7;
+    color: #1d1d1f;
+    overflow-x: hidden;
+}
+
+/* HEADER */
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background: rgba(255,255,255,0.7);
+    backdrop-filter: blur(15px);
+    padding: 15px 0;
+    text-align: center;
+    font-weight: 600;
+    z-index: 1000;
+}
+
+/* SECTIONS */
+section {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    opacity: 0;
+    transform: translateY(60px);
+    transition: 1s ease;
+}
+
+section.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* HERO */
+.hero {
+    background: white;
+}
+
+.hero h1 {
+    font-size: 80px;
+    margin: 0;
+}
+
+.hero p {
+    font-size: 28px;
+    color: #6e6e73;
+}
+
+/* IMAGE BLOCK */
+.image-block img {
+    width: 70%;
+    border-radius: 30px;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.25);
+    transition: 1s;
+}
+
+.image-block img:hover {
+    transform: scale(1.05);
+}
+
+/* DARK SECTION */
+.dark {
+    background: black;
+    color: white;
+}
+
+.dark p {
+    color: #aaa;
+}
+
+/* BUTTON */
+button {
+    margin-top: 25px;
+    padding: 14px 35px;
+    border-radius: 30px;
+    border: none;
+    background: black;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #333;
+}
+
+/* FADE IN ON SCROLL */
+.fade {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: 1s;
+}
+
+.fade.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+</style>
+</head>
+
+<body>
+
+<header>LOGO</header>
+
+<!-- HERO -->
+<section class="hero active">
+    <h1>Title</h1>
+    <p>Subtitle text here</p>
+    <button>Button</button>
+</section>
+
+<!-- IMAGE -->
+<section class="image-block">
+    <img src="https://images.unsplash.com/photo-1517336714739-489689fd1ca8">
+</section>
+
+<!-- SECOND -->
+<section>
+    <h1>Title</h1>
+    <p>Your text</p>
+</section>
+
+<!-- DARK -->
+<section class="dark">
+    <h1>Title</h1>
+    <p>Your text</p>
+</section>
+
+<script>
+const sections = document.querySelectorAll("section");
+
+window.addEventListener("scroll", () => {
+    sections.forEach(sec => {
+        const top = sec.getBoundingClientRect().top;
+        if (top < window.innerHeight - 100) {
+            sec.classList.add("active");
+        }
+    });
+});
+</script>
+
+</body>
+</html>
