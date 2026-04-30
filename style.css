@@ -1,0 +1,93 @@
+* { box-sizing: border-box; }
+body { margin: 0; background: #0b0b0f; color: white; font-family: 'Inter', sans-serif; overflow-x: hidden; }
+
+/* АНІМАЦІЇ */
+#leaf-container, #flag-container { 
+    position: fixed; 
+    inset: 0; 
+    pointer-events: none; 
+    z-index: 9999; 
+}
+
+.card { 
+    background: rgba(255, 255, 255, 0.1); 
+    backdrop-filter: blur(10px);
+    border-radius: 20px; 
+    overflow: hidden; 
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease;
+}
+.card:hover { transform: translateY(-10px); }
+.card img { width: 100%; height: 250px; object-fit: cover; opacity: 0.9; }
+.card-content { padding: 20px; text-align: center; }
+
+/* ЛОГІН */
+.auth-full {
+    position: fixed; inset: 0; z-index: 10000;
+    background: radial-gradient(circle, #1a1a25 0%, #0b0b0f 100%);
+    display: flex; align-items: center; justify-content: center;
+}
+.auth-box { background: #141420; padding: 40px; border-radius: 30px; text-align: center; border: 1px solid #333; width: 380px; }
+.auth-box input { display: block; width: 100%; padding: 12px; margin: 10px 0; background: #0b0b0f; border: 1px solid #444; color: white; border-radius: 10px; outline: none; }
+.input-hint { font-size: 11px; color: #888; margin-bottom: 15px; }
+
+/* ПРАПОРИ ТА ЛИСТЯ */
+.ua-flag-static, .flag-unit {
+    width: 60px; height: 40px; margin: 0 auto 15px;
+    background: linear-gradient(to bottom, #0057b7 50%, #ffd700 50%);
+    border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);
+}
+.flag-unit { position: absolute; bottom: -60px; width: 40px; height: 25px; animation: flyUp 8s linear forwards; }
+.leaf { position: absolute; bottom: -50px; width: 15px; height: 15px; background: #4caf50; border-radius: 2px 15px; opacity: 0.6; animation: flyUp 6s linear forwards; }
+
+@keyframes flyUp {
+    0% { transform: translateY(0) rotate(0deg); left: var(--start-x); opacity: 0; }
+    15% { opacity: 1; }
+    100% { transform: translateY(-115vh) rotate(360deg); left: var(--end-x); opacity: 0; }
+}
+
+/* ABOUT SECTION */
+.about-section { position: relative; padding: 80px 30px; background: #0e0e14; }
+.about-section.locked .about-content { filter: blur(20px); pointer-events: none; }
+#about-lock-overlay { position: absolute; inset: 0; display: none; align-items: center; justify-content: center; z-index: 100; }
+.about-section.locked #about-lock-overlay { display: flex; }
+.lock-message { background: rgba(20,20,32,0.9); padding: 30px; border-radius: 20px; border: 1px solid #4caf50; text-align: center;}
+
+.about-grid { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 40px; 
+    margin-bottom: 80px; 
+    align-items: center;
+}
+.about-text p { font-size: 16px; line-height: 1.6; color: #ccc; margin-bottom: 10px; }
+.about-images { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+.about-images img { width: 100%; height: 200px; object-fit: cover; border-radius: 15px; border: 1px solid #333; }
+
+/* ОПЛАТА */
+.payment-modal { position: fixed; inset: 0; background: rgba(0,0,0,0.9); display: none; align-items: center; justify-content: center; z-index: 3000; }
+.payment-box { background: #141420; padding: 30px; border-radius: 20px; width: 400px; text-align: center; }
+.card-visual { background: linear-gradient(135deg, #333, #111); padding: 25px; border-radius: 15px; text-align: left; margin-bottom: 20px; }
+.chip { width: 40px; height: 30px; background: #d4af37; border-radius: 5px; margin-bottom: 20px; }
+.card-visual input { background: transparent; border: none; color: white; font-size: 18px; width: 100%; border-bottom: 1px solid rgba(255,255,255,0.2); margin-bottom: 15px; outline: none; }
+.card-row { display: flex; gap: 20px; }
+.pay-btn { background: #4caf50; color: white; width: 100%; padding: 15px; font-size: 18px; border-radius: 10px; cursor: pointer; border: none; }
+.cancel-btn { background: transparent; color: #ff4444; border: 1px solid #ff4444; width: 100%; padding: 10px; border-radius: 10px; cursor: pointer; margin-top: 10px; }
+
+/* НАВІГАЦІЯ */
+nav { position: fixed; top: 0; width: 100%; display: flex; justify-content: space-between; padding: 15px 30px; background: rgba(10,10,15,0.8); backdrop-filter: blur(10px); z-index: 1000; align-items: center; }
+nav input { background: #1a1a25; border: 1px solid #333; color: white; padding: 8px 15px; border-radius: 20px; outline: none; }
+.hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+.hero h1 { font-size: 80px; margin: 0; color: #4caf50; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; padding: 50px 30px; }
+button { padding: 12px 25px; border-radius: 30px; cursor: pointer; border: none; font-weight: bold; transition: 0.3s; }
+
+.cart { position: fixed; right: -400px; top: 0; width: 350px; height: 100%; background: #0f0f14; padding: 20px; transition: 0.4s; z-index: 2000; border-left: 1px solid #333; }
+.cart.active { right: 0; }
+.overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.7); display: none; z-index: 1500; }
+.overlay.active { display: block; }
+
+@media (max-width: 768px) {
+    .about-grid { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 50px; }
+}
