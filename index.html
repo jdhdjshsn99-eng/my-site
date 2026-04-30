@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco Fashion Store</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="leaf-container"></div>
+<audio id="phonk-audio" src="https://www.myinstants.com/media/sounds/matador-phonk.mp3"></audio>
+
+<nav>
+    <div class="left">
+        <b>ECOSTYLE</b>
+        <input id="search" placeholder="Search..." oninput="render()">
+    </div>
+    <div class="right">
+        <button onclick="scrollAbout()">About Us</button>
+        <button onclick="toggleCart()">Cart</button>
+        <button onclick="openAuth()">Login</button>
+    </div>
+</nav>
+
+<section class="hero">
+    <h1>GREEN STYLE</h1>
+    <p>The future of eco-fashion</p>
+    <button onclick="scrollShop()">Shop Now</button>
+</section>
+
+<section class="section" id="shop">
+    <div class="grid" id="grid"></div>
+</section>
+
+<section class="about-section" id="about">
+    <div class="about-content">
+        
+        <h2>What do we have in our shop</h2>
+        <div class="about-grid" style="margin-bottom: 80px;">
+            <div class="about-text">
+                <p>1. Our store sells modern clothes for men and women of different ages.</p>
+                <p>Here you can find stylish T-shirts, shirts, dresses, and comfortable pants for everyday wear.</p>
+                <p>We offer fashionable jackets, sweaters, and other seasonal clothes.</p>
+                <p>In the store there are both casual and more elegant clothes for different occasions.</p>
+                <p>Our assortment is suitable for people of all age groups and styles.</p>
+                <p>We try to offer only modern, comfortable, and high-quality clothes.</p>
+            </div>
+            <div class="about-images">
+                <img src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=500" alt="Shop">
+                <img src="https://images.unsplash.com/photo-1445205174273-595106977c73?w=500" alt="Fashion">
+            </div>
+        </div>
+
+        <h2>How our shop is eco-friendly</h2>
+        <div class="about-grid" style="margin-bottom: 80px;">
+            <div class="about-text">
+                <p>Our shop is eco-friendly because we use reusable bags.</p>
+                <p>We sell clothes made from natural and recycled materials.</p>
+                <p>We try to use less plastic in our shop.</p>
+                <p>The shop saves energy by using LED lights.</p>
+                <p>We encourage customers to recycle old clothes.</p>
+                <p>Our shop supports a clean and green planet.</p>
+            </div>
+            <div class="about-images">
+                <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=500" alt="Eco">
+                <img src="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?w=500" alt="Nature">
+            </div>
+        </div>
+
+        <h2>How Our Shop is Accessible for Disabled People</h2>
+        <div class="about-grid" style="margin-bottom: 80px;">
+            <div class="about-text">
+                <p>Our shop is easy for everyone to visit.</p>
+                <p>We have wide doors for wheelchairs.</p>
+                <p>There is a ramp at the entrance.</p>
+                <p>We use clear signs inside the shop.</p>
+                <p>Our staff is always ready to help.</p>
+                <p>We want all people to feel comfortable in our shop.</p>
+            </div>
+            <div class="about-images">
+                <img src="https://images.unsplash.com/photo-1597047084897-51e81819a499?w=500" alt="Access">
+                <img src="https://images.unsplash.com/photo-1516733725897-1aa73b87c8e8?w=500" alt="Support">
+            </div>
+        </div>
+
+        <h2>Why the shop is special</h2>
+        <div class="about-grid">
+            <div class="about-text">
+                <p>Our clothing store is special because we believe fashion should be inclusive, comfortable, and meaningful for everyone. We design our collections with accessibility in mind, making sure people with disabilities can enjoy style without limitations. Our team is trained to provide respectful and supportive service to every customer. We also prioritize adaptive clothing options that combine function and aesthetics. At the same time, we are committed to being eco-friendly by using sustainable materials and ethical production methods. We reduce waste wherever possible and support responsible consumption. Every piece we create reflects care for both people and the planet. Choosing us means supporting a brand that values inclusivity and sustainability.</p>
+            </div>
+            <div class="about-images">
+                <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=500" alt="Special">
+                <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=500" alt="Design">
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="overlay" id="overlay" onclick="toggleCart()"></div>
+<div class="cart" id="cart">
+    <h2>Your Cart</h2>
+    <div id="cartItems"></div>
+    <button onclick="checkout()" style="width:100%; margin-top:20px;">Checkout</button>
+</div>
+
+<div class="auth" id="auth">
+    <div class="box">
+        <h2>Login</h2>
+        <input id="user" placeholder="Your Name" style="width:100%; margin-bottom:10px; padding:10px; background:#0b0b0f; color:white; border:1px solid #333;">
+        <button onclick="login()">Enter</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
