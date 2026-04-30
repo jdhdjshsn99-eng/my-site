@@ -1,0 +1,49 @@
+* { box-sizing: border-box; }
+body { margin: 0; padding: 0; background-color: #0b0b0f; color: white; font-family: 'Inter', sans-serif; overflow-x: hidden; }
+
+/* Листки */
+#leaf-container { position: fixed; inset: 0; pointer-events: none; z-index: 9999; overflow: hidden; }
+.leaf {
+    position: absolute; bottom: -50px; width: 15px; height: 15px;
+    background: #4caf50; border-radius: 2px 15px; opacity: 0.6;
+    animation: flyUp 6s linear forwards;
+}
+@keyframes flyUp {
+    0% { transform: translateY(0) rotate(0deg); left: var(--start-x); opacity: 0; }
+    10% { opacity: 0.6; }
+    100% { transform: translateY(-110vh) rotate(360deg); left: var(--end-x); opacity: 0; }
+}
+
+nav {
+    position: fixed; top: 0; width: 100%; display: flex; justify-content: space-between; align-items: center;
+    padding: 15px 30px; background: rgba(10,10,15,0.8); backdrop-filter: blur(10px); z-index: 1000;
+}
+nav input { background: #1a1a25; border: 1px solid #333; color: white; padding: 8px 15px; border-radius: 20px; }
+
+.hero {
+    height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
+    background: radial-gradient(circle at center, #1a1a25 0%, #0b0b0f 100%);
+}
+.hero h1 { font-size: 80px; margin: 0; }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; padding: 50px 30px; }
+.card { background: #141420; border-radius: 20px; overflow: hidden; border: 1px solid #222; }
+.card img { width: 100%; height: 250px; object-fit: cover; }
+.card-content { padding: 20px; }
+
+.about-section { padding: 100px 30px; background: #0e0e14; }
+.about-content h2 { color: #4caf50; font-size: 32px; margin-bottom: 30px; }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+.about-images { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.about-images img { width: 100%; border-radius: 10px; height: 180px; object-fit: cover; }
+
+button { padding: 10px 25px; border-radius: 30px; cursor: pointer; border: none; font-weight: bold; background: white; color: black; }
+button:hover { background: #4caf50; color: white; }
+
+.cart { position: fixed; right: -400px; top: 0; width: 350px; height: 100%; background: #0f0f14; padding: 20px; transition: 0.4s; z-index: 2000; }
+.cart.active { right: 0; }
+.overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.7); display: none; z-index: 1500; }
+.overlay.active { display: block; }
+.auth { position: fixed; inset: 0; display: none; align-items: center; justify-content: center; background: rgba(0,0,0,0.8); z-index: 3000; }
+.auth.active { display: flex; }
+.box { background: #141420; padding: 30px; border-radius: 20px; text-align: center; }
